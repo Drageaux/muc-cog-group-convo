@@ -2,6 +2,7 @@
 build
 web_modules
 dist
+.history/
 
 # Created by https://www.toptal.com/developers/gitignore/api/code,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=code,node
