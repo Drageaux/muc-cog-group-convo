@@ -17,19 +17,19 @@ import {
 import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls';
 
 // MainStuff:Setup
-let scene = new Scene();
-let camera = new PerspectiveCamera(
+const scene = new Scene();
+const camera = new PerspectiveCamera(
   65,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000,
+  1000
 );
-let renderer = new WebGLRenderer();
-var controls = new PointerLockControls(camera, document.body);
+const renderer = new WebGLRenderer();
+const controls = new PointerLockControls(camera, document.body);
 const keyPresses: { [key: number]: boolean } = {};
 controls.lock();
 
-let player = {
+const player = {
   height: 0.5,
   turnSpeed: 0.1,
   speed: 0.1,
@@ -48,7 +48,7 @@ document.body.appendChild(renderer.domElement);
 
 // BrowserWindow->Renderer:ResizeRe-Render
 window.addEventListener('resize', () => {
-  let w = window.innerWidth,
+  const w = window.innerWidth,
     h = window.innerHeight;
 
   renderer.setSize(w, h);
@@ -61,24 +61,24 @@ camera.position.set(0, player.height, -5);
 camera.lookAt(new Vector3(0, player.height, 0));
 
 // Object:Box1
-let BoxGeometry1 = new BoxGeometry(1, 1, 1);
-let BoxMaterial1 = new MeshBasicMaterial({
+const BoxGeometry1 = new BoxGeometry(1, 1, 1);
+const BoxMaterial1 = new MeshBasicMaterial({
   color: 'white',
   wireframe: false,
 });
-let Box1 = new Mesh(BoxGeometry1, BoxMaterial1);
+const Box1 = new Mesh(BoxGeometry1, BoxMaterial1);
 
 Box1.position.y = 3;
 Box1.scale.x = Box1.scale.y = Box1.scale.z = 0.25;
 scene.add(Box1);
 
 // Object:Box2
-let BoxGeometry2 = new BoxGeometry(1, 1, 1);
-let BoxMaterial2 = new MeshPhongMaterial({
+const BoxGeometry2 = new BoxGeometry(1, 1, 1);
+const BoxMaterial2 = new MeshPhongMaterial({
   color: 'white',
   wireframe: false,
 });
-let Box2 = new Mesh(BoxGeometry2, BoxMaterial2);
+const Box2 = new Mesh(BoxGeometry2, BoxMaterial2);
 
 Box2.position.y = 0.75;
 Box2.position.x = 0;
@@ -88,12 +88,12 @@ Box2.castShadow = true;
 scene.add(Box2);
 
 // Object:Plane
-let PlaneGeometry1 = new PlaneGeometry(10, 10);
-let PlaneMaterial1 = new MeshPhongMaterial({
+const PlaneGeometry1 = new PlaneGeometry(10, 10);
+const PlaneMaterial1 = new MeshPhongMaterial({
   color: 'white',
   wireframe: false,
 });
-let Plane1 = new Mesh(PlaneGeometry1, PlaneMaterial1);
+const Plane1 = new Mesh(PlaneGeometry1, PlaneMaterial1);
 
 Plane1.rotation.x -= Math.PI / 2;
 Plane1.scale.x = 3;
@@ -102,14 +102,14 @@ Plane1.receiveShadow = true;
 scene.add(Plane1);
 
 // Object:Light:1
-let light1 = new PointLight('white', 0.8);
+const light1 = new PointLight('white', 0.8);
 light1.position.set(0, 3, 0);
 light1.castShadow = true;
 light1.shadow.camera.near = 2.5;
 scene.add(light1);
 
 // Object:Light:2
-let light2 = new AmbientLight('white', 0.15);
+const light2 = new AmbientLight('white', 0.15);
 light2.position.set(10, 2, 0);
 scene.add(light2);
 
@@ -162,6 +162,7 @@ function control() {
     player.playerJumps = true;
     player.velocity = -player.jumpHeight;
   }
+  return undefined;
 }
 
 function ixMovementUpdate() {
@@ -175,7 +176,7 @@ function ixMovementUpdate() {
 }
 
 function ixLightcubeAnimation() {
-  let a = 0.01;
+  const a = 0.01;
   Box1.rotation.x += a;
   Box1.rotation.y += a;
 }

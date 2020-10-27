@@ -1,9 +1,11 @@
 {
+  "extends": "./node_modules/gts/tsconfig.json",
   "include": [
     "src",
     "types"
   ],
   "compilerOptions": {
+    "rootDir": "src",
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
@@ -29,6 +31,7 @@
       "*": [
         "web_modules/.types/*"
       ]
-    }
+    },
+    "lib": ["DOM"]
   }
 }
