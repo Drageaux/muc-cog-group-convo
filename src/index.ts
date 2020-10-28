@@ -13,6 +13,10 @@ import {
   MeshPhongMaterial,
   PlaneGeometry,
   PointLight,
+  LinearFilter,
+  VideoTexture,
+  FrontSide,
+  RGBFormat,
 } from 'three';
 import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls';
 
@@ -72,14 +76,24 @@ Box1.position.y = 3;
 Box1.scale.x = Box1.scale.y = Box1.scale.z = 0.25;
 scene.add(Box1);
 
-// Object:Box2
-const BoxGeometry2 = new BoxGeometry(1, 1, 1);
-const BoxMaterial2 = new MeshPhongMaterial({
-  color: 'white',
-  wireframe: false,
-});
-const Box2 = new Mesh(BoxGeometry2, BoxMaterial2);
+// Object:Box2/Video
+const video = document.createElement('video');
+video.src = './example-vid.mp4';
+video.load();
+video.play();
 
+const videoTexture = new VideoTexture(video);
+videoTexture.minFilter = LinearFilter;
+videoTexture.magFilter = LinearFilter;
+videoTexture.format = RGBFormat;
+const movieMaterial = new MeshBasicMaterial({
+  map: videoTexture,
+  // overdraw: true,
+  side: FrontSide,
+});
+
+const BoxGeometry2 = new BoxGeometry(1, 1, 1);
+const Box2 = new Mesh(BoxGeometry2, movieMaterial);
 Box2.position.y = 0.75;
 Box2.position.x = 0;
 Box2.receiveShadow = true;
