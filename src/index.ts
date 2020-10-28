@@ -14,7 +14,7 @@ import {
   PlaneGeometry,
   PointLight,
 } from 'three';
-import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls';
+import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls';
 
 // MainStuff:Setup
 const scene = new Scene();
@@ -26,7 +26,7 @@ const camera = new PerspectiveCamera(
 );
 const renderer = new WebGLRenderer();
 const controls = new PointerLockControls(camera, document.body);
-const keyPresses: { [key: number]: boolean } = {};
+const keyPresses: {[key: number]: boolean} = {};
 controls.lock();
 
 const player = {
@@ -114,10 +114,10 @@ light2.position.set(10, 2, 0);
 scene.add(light2);
 
 // Controls:Listeners
-document.addEventListener('keydown', ({ keyCode }) => {
+document.addEventListener('keydown', ({keyCode}) => {
   keyPresses[keyCode] = true;
 });
-document.addEventListener('keyup', ({ keyCode }) => {
+document.addEventListener('keyup', ({keyCode}) => {
   keyPresses[keyCode] = false;
 });
 

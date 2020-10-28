@@ -1,5 +1,11 @@
 {
-  "extends": [
-    "./node_modules/gts/.eslintrc.json"
-  ]
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "extends": ["./node_modules/gts/.eslintrc.json"]
 }
