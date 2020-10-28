@@ -5,7 +5,9 @@
 </head>
 
 <body>
-    <a-scene>
+    <script type="text/javascript" src="js/socket.js"></script>
+
+    <a-scene begin-socket>
         <a-assets>
             <a-asset-item id="conference-table" src="assets/conference-table/scene.gltf"></a-asset-item>
             <a-asset-item id="conference-room" src="assets/conference-room/scene.gltf"></a-asset-item>
@@ -19,8 +21,6 @@
         <a-entity id="rig" position="3.2 0.4 0" rotation="0 90 0">
             <a-camera id="camera" look-controls="pointer-lock-enabled: true;"></a-camera>
         </a-entity>
-        <a-entity geometry="primitive: plane; height: auto; width: auto" material="color: black; opacity: 0.5;"
-            text="max-count:40; width: 1.5; value: Hi my name is Gabriel and I will be interviewing you today" rotation="0 90 0" position="1.0 2.5 -1.290"></a-entity>
 
     </a-scene>
 </body>
