@@ -98,8 +98,33 @@ Box2.position.y = 0.75;
 Box2.position.x = 0;
 Box2.receiveShadow = true;
 Box2.castShadow = true;
-
 scene.add(Box2);
+
+// Object:Box2/Video
+const video2 = document.createElement('video');
+video.src = './example-vid.mp4';
+video.load();
+video.play();
+
+const videoTexture2 = new VideoTexture(video);
+videoTexture.minFilter = LinearFilter;
+videoTexture.magFilter = LinearFilter;
+videoTexture.format = RGBFormat;
+const movieMaterial2 = new MeshBasicMaterial({
+  map: videoTexture,
+  // overdraw: true,
+  side: FrontSide,
+});
+
+const BoxGeometry3 = new BoxGeometry(1, 1, 1);
+const Box3 = new Mesh(BoxGeometry3, movieMaterial2);
+Box3.position.y = 0.75;
+Box3.position.x = 3;
+Box3.position.z = -1;
+Box3.rotation.y = -Math.PI / 4;
+Box3.receiveShadow = true;
+Box3.castShadow = true;
+scene.add(Box3);
 
 // Object:Plane
 const PlaneGeometry1 = new PlaneGeometry(10, 10);
