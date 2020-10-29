@@ -4,12 +4,37 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "build": "webpack",
+    "start:dev": "webpack serve"
   },
   "repository": {
     "type": "git",
     "url": "https://github.gatech.edu/tnguyen345/muc-cog-group-convo/"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aframe": "^1.0.1",
+    "@types/node": "^14.11.2",
+    "copy-webpack-plugin": "^6.2.1",
+    "gts": "^3.0.2",
+    "html-webpack-plugin": "^4.5.0",
+    "terser-webpack-plugin": "^5.0.3",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.3",
+    "webpack": "^5.3.1",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "aframe": "^1.0.4"
+  }
 }
