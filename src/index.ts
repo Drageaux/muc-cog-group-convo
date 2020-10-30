@@ -18,18 +18,19 @@ registerComponent('begin-socket', {
   init: function () {
     let i = 0;
 
+    // NOTE: querySelectorAll returns a NodeList that does not support .object3D readily
     const peopleModels = document.querySelectorAll(
       'a-entity[gltf-model="#sitting"]'
     );
+
+    // forEach and as Entity<any> is a quick work-around
     peopleModels.forEach((p, id) => {
       console.log(id);
       const personModel = p as Entity<any>;
-      const cam = document.querySelector('a-camera').object3D;
-      const camPos = cam.getWorldPosition(new THREE.Vector3());
       const personPos = personModel.object3D.position;
+      // y value is hard to grasp, so right now we just hard code a value
       // const box = new THREE.Box3().setFromObject(personModel.object3D);
       // const personHeight = box.max.y - box.min.y;
-      console.log('person pos', personPos);
       setInterval(() => {
         const newTextElement = createAFrameText(
           `${i}: Message is ${
@@ -39,7 +40,6 @@ registerComponent('begin-socket', {
           [0, 90, 0]
         );
         newTextElement.setAttribute(MESSAGE_QUEUE_NAME, {queueId: id});
-
         i += 1;
         this.el.appendChild(newTextElement);
       }, 3000);
@@ -55,11 +55,11 @@ registerComponent('rotation-reader', {
   tick: (function () {
     const position = new THREE.Vector3();
     return function () {
+      // using "this" does not support getting object3D, so we use querySelector instead
       const camPos = document
         .querySelector('a-camera')
         .object3D.getWorldPosition(position);
       const texts = document.querySelectorAll('a-entity[text]');
-
       texts.forEach((t, id) => {
         const textEntity = t as Entity<any>;
         textEntity.object3D.lookAt(camPos.x, 1, camPos.z);
