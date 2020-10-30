@@ -4,7 +4,6 @@ import {
   MAX_HEIGHT,
   MAX_WIDTH,
   MESSAGE_QUEUE_NAME,
-  PADDING,
 } from './constants';
 import {messageQueuesComponent} from './components/messageQueues';
 import {messageQueuesSystem} from './systems/messageQueues';
@@ -43,7 +42,6 @@ registerComponent('begin-socket', {
 
         i += 1;
         this.el.appendChild(newTextElement);
-        newTextElement.object3D.lookAt(camPos.x, camPos.y, camPos.z);
       }, 3000);
     });
   },
@@ -57,7 +55,6 @@ registerComponent('rotation-reader', {
   tick: (function () {
     const position = new THREE.Vector3();
     return function () {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const camPos = document
         .querySelector('a-camera')
         .object3D.getWorldPosition(position);
