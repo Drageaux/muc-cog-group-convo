@@ -18,29 +18,28 @@ const words = ['quite', 'almost', 'very', 'really', 'too', 'extremely', 'just'];
 registerComponent('begin-socket', {
   init: function () {
     let i = 0;
-    const QUEUE_ID = 0;
 
     const peopleModels = document.querySelectorAll(
       'a-entity[gltf-model="#sitting"]'
     );
-    peopleModels.forEach(p => {
+    peopleModels.forEach((p, id) => {
+      console.log(id);
       const personModel = p as Entity<any>;
       const cam = document.querySelector('a-camera').object3D;
       const camPos = cam.getWorldPosition(new THREE.Vector3());
-      console.log('cam pos', camPos);
       const personPos = personModel.object3D.position;
-      const box = new THREE.Box3().setFromObject(personModel.object3D);
-      const personHeight = box.max.y - box.min.y;
+      // const box = new THREE.Box3().setFromObject(personModel.object3D);
+      // const personHeight = box.max.y - box.min.y;
       console.log('person pos', personPos);
       setInterval(() => {
         const newTextElement = createAFrameText(
           `${i}: Message is ${
             words[i % words.length]
           } interesting wow so interesting`,
-          {x: personPos.x, y: 0, z: personPos.z},
+          {x: personPos.x, y: 2.5, z: personPos.z},
           [0, 90, 0]
         );
-        newTextElement.setAttribute(MESSAGE_QUEUE_NAME, {queueId: QUEUE_ID});
+        newTextElement.setAttribute(MESSAGE_QUEUE_NAME, {queueId: id});
 
         i += 1;
         this.el.appendChild(newTextElement);
@@ -48,6 +47,31 @@ registerComponent('begin-socket', {
       }, 3000);
     });
   },
+});
+
+registerComponent('rotation-reader', {
+  /**
+   * We use IIFE (immediately-invoked function expression) to only allocate one
+   * vector or euler and not re-create on every tick to save memory.
+   */
+  tick: (function () {
+    const position = new THREE.Vector3();
+    return function () {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const camPos = document
+        .querySelector('a-camera')
+        .object3D.getWorldPosition(position);
+      const texts = document.querySelectorAll('a-entity[text]');
+
+      texts.forEach((t, id) => {
+        const textEntity = t as Entity<any>;
+        textEntity.object3D.lookAt(camPos.x, 1, camPos.z);
+      });
+      //   this.el.object3D.getWorldPosition(position);
+      //   this.el.object3D.getWorldQuaternion(quaternion);
+      // position and rotation now contain vector and quaternion in world space.
+    };
+  })(),
 });
 
 /**
