@@ -1,0 +1,20 @@
+<html>
+<body>
+    <a-scene begin-socket>
+        <a-assets>
+            <a-asset-item id="conference-table" src="assets/conference-table/scene.gltf"></a-asset-item>
+            <a-asset-item id="conference-room" src="assets/conference-room/scene.gltf"></a-asset-item>
+            <a-asset-item id="sitting" src="assets/Lowpolymesh_Eliber.glb"></a-asset-item>
+        </a-assets>
+        <a-entity scale="0.01 0.011 0.01" gltf-model="#conference-table"></a-entity>
+        <a-entity scale="0.01 0.01 0.01" gltf-model="#conference-room"></a-entity>
+        <a-entity scale="0.3 0.3 0.3" position="1.0 0.670 -1.290" gltf-model="#sitting"></a-entity>
+        <a-entity scale="0.3 0.3 0.3" position="1.0 0.670 1.290" rotation="0 180 0" gltf-model="#sitting"></a-entity>
+        <a-entity scale="0.3 0.3 0.3" position="-3.2 0.670 0" rotation="0 90 0" gltf-model="#sitting"></a-entity>
+        <a-entity id="rig" position="3.2 0.4 0" rotation="0 90 0">
+            <a-camera id="camera" look-controls="pointer-lock-enabled: true;"></a-camera>
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
