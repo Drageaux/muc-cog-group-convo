@@ -1,27 +1,74 @@
-import {Coordinate, registerComponent} from 'aframe';
-import {MAX_CHARACTER_COUNT, MAX_HEIGHT, MAX_WIDTH, MESSAGE_QUEUE_NAME} from './constants';
+import {Coordinate, Entity, registerComponent} from 'aframe';
+import {
+  MAX_CHARACTER_COUNT,
+  MAX_HEIGHT,
+  MAX_WIDTH,
+  MESSAGE_QUEUE_NAME,
+} from './constants';
 import {messageQueuesComponent} from './components/messageQueues';
 import {messageQueuesSystem} from './systems/messageQueues';
+import THREE = require('three');
 
 // Necessary so webpack won't mark these as dead code. Probably a better way to do this but ¯\_(ツ)_/¯
 messageQueuesComponent;
 messageQueuesSystem;
 
+const words = ['quite', 'almost', 'very', 'really', 'too', 'extremely', 'just'];
 registerComponent('begin-socket', {
   init: function () {
     let i = 0;
-    const QUEUE_ID = 0;
-    setInterval(() => {
-      const newTextElement = createAFrameText(
-        `${i}: Message is really interesting wow so interesting`,
-        {x: 1.0, y: 2.5, z: -1.29},
-        [0, 90, 0]
-      );
-      newTextElement.setAttribute(MESSAGE_QUEUE_NAME, {queueId: QUEUE_ID});
-      this.el.appendChild(newTextElement);
-      i += 1;
-    }, 3000);
+
+    // NOTE: querySelectorAll returns a NodeList that does not support .object3D readily
+    const peopleModels = document.querySelectorAll(
+      'a-entity[gltf-model="#sitting"]'
+    );
+
+    // forEach and as Entity<any> is a quick work-around
+    peopleModels.forEach((p, id) => {
+      console.log(id);
+      const personModel = p as Entity<any>;
+      const personPos = personModel.object3D.position;
+      // y value is hard to grasp, so right now we just hard code a value
+      // const box = new THREE.Box3().setFromObject(personModel.object3D);
+      // const personHeight = box.max.y - box.min.y;
+      setInterval(() => {
+        const newTextElement = createAFrameText(
+          `${i}: Message is ${
+            words[i % words.length]
+          } interesting wow so interesting`,
+          {x: personPos.x, y: 2.5, z: personPos.z},
+          [0, 90, 0]
+        );
+        newTextElement.setAttribute(MESSAGE_QUEUE_NAME, {queueId: id});
+        i += 1;
+        this.el.appendChild(newTextElement);
+      }, 3000);
+    });
   },
+});
+
+registerComponent('rotation-reader', {
+  /**
+   * We use IIFE (immediately-invoked function expression) to only allocate one
+   * vector or euler and not re-create on every tick to save memory.
+   */
+  tick: (function () {
+    const position = new THREE.Vector3();
+    return function () {
+      // using "this" does not support getting object3D, so we use querySelector instead
+      const camPos = document
+        .querySelector('a-camera')
+        .object3D.getWorldPosition(position);
+      const texts = document.querySelectorAll('a-entity[text]');
+      texts.forEach((t, id) => {
+        const textEntity = t as Entity<any>;
+        textEntity.object3D.lookAt(camPos.x, 1, camPos.z);
+      });
+      //   this.el.object3D.getWorldPosition(position);
+      //   this.el.object3D.getWorldQuaternion(quaternion);
+      // position and rotation now contain vector and quaternion in world space.
+    };
+  })(),
 });
 
 /**
