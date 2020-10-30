@@ -35,6 +35,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "aframe": "^1.0.4"
+    "aframe": "^1.0.4",
+    "three": "^0.122.0"
   }
 }
