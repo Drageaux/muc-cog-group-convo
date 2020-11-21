@@ -1,10 +1,13 @@
-import { registerComponent, Entity } from "aframe";
-import { createAFrameText } from "../common";
-import { MESSAGE_QUEUE_NAME } from "../constants";
+import {registerComponent, Entity} from 'aframe';
+import {createAFrameText} from '../common';
+import {MESSAGE_QUEUE_NAME} from '../constants';
 
 const words = ['quite', 'almost', 'very', 'really', 'too', 'extremely', 'just'];
 export const beginSocketComponent = registerComponent('begin-socket', {
+  currentVideo: 1,
   init: function () {
+    loadVideoFile('/assets/videos/1.mp4');
+
     let i = 0;
 
     // NOTE: querySelectorAll returns a NodeList that does not support .object3D readily
@@ -34,3 +37,22 @@ export const beginSocketComponent = registerComponent('begin-socket', {
     });
   },
 });
+
+export const loadVideoFile = (file: string) => {
+  const video: any = document.createElement('video');
+  video.preload = 'metadata';
+
+  video.onloadedmetadata = function () {
+    window.URL.revokeObjectURL(video.src);
+
+    if (video.duration < 1) {
+      console.log('Invalid Video! video is less than 1 second');
+      return;
+    }
+    console.log({video});
+
+    // methodToCallIfValid();
+  };
+
+  // video.src = URL.createObjectURL(file);
+};
