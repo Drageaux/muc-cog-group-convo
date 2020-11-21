@@ -6,7 +6,7 @@ const words = ['quite', 'almost', 'very', 'really', 'too', 'extremely', 'just'];
 export const beginSocketComponent = registerComponent('begin-socket', {
   currentVideo: 1,
   init: function () {
-    loadVideoFile('/assets/videos/1.mp4');
+    // loadVideoFile('/assets/videos/1.mp4');
 
     let i = 0;
 
@@ -38,35 +38,35 @@ export const beginSocketComponent = registerComponent('begin-socket', {
   },
 });
 
-const juryForemanVids = [];
-const juryAVids = [];
-const juryBVids = [];
-const juryCVids = [];
+// const juryForemanVids = [];
+// const juryAVids = [];
+// const juryBVids = [];
+// const juryCVids = [];
 
-export const loadVideoFile = (file: string) => {
-  const video: any = document.createElement('video');
-  video.preload = 'metadata';
+// export const loadVideoFile = (file: string) => {
+//   const video: any = document.createElement('video');
+//   video.preload = 'metadata';
 
-  video.onloadedmetadata = function () {
-    window.URL.revokeObjectURL(video.src);
+//   video.onloadedmetadata = function () {
+//     window.URL.revokeObjectURL(video.src);
 
-    if (video.duration < 1) {
-      console.log('Invalid Video! video is less than 1 second');
-      return;
-    }
-    console.log({video});
+//     if (video.duration < 1) {
+//       console.log('Invalid Video! video is less than 1 second');
+//       return;
+//     }
+//     console.log({video});
 
-    // methodToCallIfValid();
-  };
+//     // methodToCallIfValid();
+//   };
 
-  // video.src = URL.createObjectURL(file);
-  // to set specific time of video
-  document.querySelector(
-    '#antarctica'
-  ).components.material.data.src.currentTime = 0; // start of video
+//   // video.src = URL.createObjectURL(file);
+//   // to set specific time of video
+//   document.querySelector(
+//     '#antarctica'
+//   ).components.material.data.src.currentTime = 0; // start of video
 
-  // to play the videosphere
-  document
-    .querySelector('#antarctica')
-    .components.material.material.map.image.play();
-};
+//   // to play the videosphere
+//   document
+//     .querySelector('#antarctica')
+//     .components.material.material.map.image.play();
+// };

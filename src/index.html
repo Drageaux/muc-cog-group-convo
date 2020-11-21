@@ -2,32 +2,6 @@
   <body>
     <a-scene begin-socket>
       <a-assets>
-        <!-- <a-asset-item
-          id="conference-table"
-          src="assets/conference-table/scene.gltf"
-        ></a-asset-item> -->
-        <!-- Videos -->
-        <!--  -->
-        <a-asset-item
-          id="vid-2"
-          loop="false"
-          src="assets/videos/2.mp4"
-        ></a-asset-item>
-        <a-asset-item
-          id="vid-3"
-          loop="false"
-          src="assets/videos/3.mp4"
-        ></a-asset-item>
-        <a-asset-item
-          id="vid-4"
-          loop="false"
-          src="assets/videos/4.mp4"
-        ></a-asset-item>
-        <a-asset-item
-          id="vid-5"
-          loop="false"
-          src="assets/videos/5.mp4"
-        ></a-asset-item>
         <!-- 3D Models -->
         <!-- https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74 -->
         <a-asset-item
@@ -58,9 +32,9 @@
         id="jury-a"
       >
         <a-video
+          id="juror-a"
           width="9"
           height="16"
-          src="#vid-3"
           scale="0.28 0.28 0.28"
           position="0 4.75 0.9"
         ></a-video>
@@ -74,9 +48,9 @@
         id="jury-c"
       >
         <a-video
+          id="juror-c"
           width="16"
           height="9"
-          src="#vid-5"
           scale="0.37 0.37 0.37"
           position="0 4.75 0.9"
         ></a-video>
@@ -90,9 +64,9 @@
         id="jury-b"
       >
         <a-video
+          id="juror-b"
           width="16"
           height="9"
-          src="#vid-2"
           scale="0.33 0.33 0.33"
           position="0 4.5 0.9"
         ></a-video>
@@ -106,20 +80,13 @@
         id="foreman"
       >
         <a-video
+          id="jury-foreman"
           width="16"
           height="9"
-          src="#vid-4"
           scale="0.33 0.33 0.33"
           position="0 4.75 0.9"
         ></a-video>
       </a-entity>
-
-      <!-- <a-entity
-        scale="0.3 0.3 0.3"
-        position="-2 0.670 0"
-        rotation="0 90 0"
-        gltf-model="#sitting"
-      ></a-entity> -->
 
       <a-entity id="rig" position="2 0.4 0" rotation="0 90 0">
         <a-camera
