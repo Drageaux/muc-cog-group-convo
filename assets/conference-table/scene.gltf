@@ -3,32 +3,32 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 518,
+      "count": 3083,
       "max": [
-        300,
-        100,
-        100
+        55,
+        55,
+        75
       ],
       "min": [
-        -300,
-        -0.26670455932617188,
-        -100
+        -55,
+        -55,
+        0.73170852661132812
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 6216,
+      "byteOffset": 36996,
       "componentType": 5126,
-      "count": 518,
+      "count": 3083,
       "max": [
-        1,
-        1,
+        0.99999827146530151,
+        0.99999827146530151,
         1
       ],
       "min": [
-        -1,
-        -1,
+        -0.99999827146530151,
+        -0.99999880790710449,
         -1
       ],
       "type": "VEC3"
@@ -36,41 +36,122 @@
     {
       "bufferView": 3,
       "componentType": 5126,
-      "count": 518,
+      "count": 3083,
       "max": [
-        0.99856770038604736,
-        1,
-        1,
+        0.99999678134918213,
+        0.99999850988388062,
+        0.99968206882476807,
         1
       ],
       "min": [
-        -1,
-        -1,
-        -1,
-        1
+        -0.99919247627258301,
+        -0.99999850988388062,
+        -0.99938923120498657,
+        -1
       ],
       "type": "VEC4"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 518,
+      "count": 3083,
       "max": [
-        0.98826009035110474,
-        0.98679345846176147
+        0.9837111234664917,
+        0.99949997663497925
       ],
       "min": [
-        0.017631471157073975,
-        0.037163063883781433
+        0.00050000002374872565,
+        0.00050000002374872565
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 1920,
+      "count": 16128,
       "max": [
-        517
+        3082
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 73992,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        167.02890014648438,
+        167.02890014648438,
+        0
+      ],
+      "min": [
+        -167.02890014648438,
+        -167.02890014648438,
+        0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 74040,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        0,
+        0,
+        1
+      ],
+      "min": [
+        0,
+        0,
+        1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 49328,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        1,
+        2.3841872121010965e-07,
+        0,
+        1
+      ],
+      "min": [
+        1,
+        1.7881399116959074e-07,
+        0,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 24664,
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        1,
+        1
+      ],
+      "min": [
+        2.98022992950564e-08,
+        2.98022992950564e-08
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 64512,
+      "componentType": 5125,
+      "count": 6,
+      "max": [
+        3
       ],
       "min": [
         0
@@ -80,42 +161,42 @@
   ],
   "asset": {
     "extras": {
-      "author": "mozillareality (https://sketchfab.com/mozillareality)",
-      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/models/1ba845e95a964809a9437c2a92ac59ab",
-      "title": "Conference Table - rectangular 6m"
+      "author": "MADE.COM (https://sketchfab.com/made-it)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/3d-models/aveiro-round-dining-table-oak-1d43b7612af94e1183f00e604d9edf4a",
+      "title": "Aveiro Round Dining Table, Oak"
     },
-    "generator": "Sketchfab-3.41.2",
+    "generator": "Sketchfab-5.29.0",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 7680,
+      "byteLength": 64536,
       "byteOffset": 0,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 4144,
-      "byteOffset": 7680,
+      "byteLength": 24696,
+      "byteOffset": 64536,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 12432,
-      "byteOffset": 11824,
+      "byteLength": 74088,
+      "byteOffset": 89232,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 8288,
-      "byteOffset": 24256,
+      "byteLength": 49392,
+      "byteOffset": 163320,
       "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
@@ -123,32 +204,56 @@
   ],
   "buffers": [
     {
-      "byteLength": 32544,
+      "byteLength": 212712,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/lambert1_metallicRoughness.png"
+      "uri": "textures/OAK5_baseColor.jpeg"
     },
     {
-      "uri": "textures/lambert1_baseColor.jpeg"
+      "uri": "textures/OAK5_metallicRoughness.png"
     },
     {
-      "uri": "textures/lambert1_normal.png"
+      "uri": "textures/FLOOR_baseColor.png"
     }
   ],
   "materials": [
     {
-      "doubleSided": false,
-      "name": "lambert1",
-      "normalTexture": {
-        "index": 2,
-        "scale": 1,
-        "texCoord": 0
-      },
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "FLOOR",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 2,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "OAK5",
       "occlusionTexture": {
-        "index": 0,
+        "index": 1,
         "strength": 1,
         "texCoord": 0
       },
@@ -160,21 +265,21 @@
           1
         ],
         "baseColorTexture": {
-          "index": 1,
-          "texCoord": 0
-        },
-        "metallicFactor": 1,
-        "metallicRoughnessTexture": {
           "index": 0,
           "texCoord": 0
         },
-        "roughnessFactor": 1
+        "metallicFactor": 0,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "roughnessFactor": 0.31269054880000002
       }
     }
   ],
   "meshes": [
     {
-      "name": "ConferenceTable1_lambert1_0",
+      "name": "OAK5",
       "primitives": [
         {
           "attributes": {
@@ -184,6 +289,22 @@
             "TEXCOORD_0": 3
           },
           "indices": 4,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "FLOOR",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
           "material": 0,
           "mode": 4
         }
@@ -211,7 +332,21 @@
     },
     {
       "children": [
-        3
+        3,
+        6,
+        8
+      ],
+      "name": "Collada visual scene group"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "Aveiro_Round_Dining_Table"
+    },
+    {
+      "children": [
+        5
       ],
       "matrix": [
         1,
@@ -219,35 +354,42 @@
         0,
         0,
         0,
+        1,
+        0,
+        0,
+        0,
         0,
         1,
         0,
         0,
-        -1,
-        0,
-        0,
-        0,
-        0,
-        0,
+        -1.6193699999999999e-06,
+        -0.81906889999999999,
         1
       ],
-      "name": "bb84f99026904b148903047925f14e73.fbx"
-    },
-    {
-      "children": [
-        4
-      ],
-      "name": "RootNode"
-    },
-    {
-      "children": [
-        5
-      ],
-      "name": "ConferenceTable1"
+      "name": ""
     },
     {
       "mesh": 0,
-      "name": "ConferenceTable1_lambert1_0"
+      "name": "OAK5"
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "Plane001"
+    },
+    {
+      "mesh": 1,
+      "name": "FLOOR"
+    },
+    {
+      "children": [
+        9
+      ],
+      "name": "EnvironmentAmbientLight"
+    },
+    {
+      "name": "EnvironmentAmbientLight"
     }
   ],
   "samplers": [

@@ -1,6 +1,6 @@
 <html>
   <body>
-    <a-scene begin-socket>
+    <a-scene>
       <a-assets>
         <a-asset-item
           id="conference-table"
@@ -16,27 +16,31 @@
         ></a-asset-item>
       </a-assets>
       <a-entity
-        scale="0.01 0.011 0.01"
+        scale="0.03 0.018 0.03"
+        rotation="0 45 0"
         gltf-model="#conference-table"
       ></a-entity>
       <a-entity scale="0.01 0.01 0.01" gltf-model="#conference-room"></a-entity>
-      <a-entity
-        scale="0.3 0.3 0.3"
-        position="1.0 0.670 -1.290"
-        gltf-model="#sitting"
-      ></a-entity>
-      <a-entity
-        scale="0.3 0.3 0.3"
-        position="1.0 0.670 1.290"
+      <a-video
+        id="juror-a"
+        width="2"
+        height="1.125"
+        position="1.0 2 -1.290"
+      ></a-video>
+      <a-video
+        id="juror-b"
+        width="2"
+        height="1.125"
+        position="1.0 2 1.290"
         rotation="0 180 0"
-        gltf-model="#sitting"
-      ></a-entity>
-      <a-entity
-        scale="0.3 0.3 0.3"
-        position="-3.2 0.670 0"
+      ></a-video>
+      <a-video
+        id="juror-c"
+        width="1.125"
+        height="2"
+        position="-3.2 2 0"
         rotation="0 90 0"
-        gltf-model="#sitting"
-      ></a-entity>
+      ></a-video>
       <a-entity id="rig" position="3.2 0.4 0" rotation="0 90 0">
         <a-camera
           id="camera"
