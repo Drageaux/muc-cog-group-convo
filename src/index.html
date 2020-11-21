@@ -92,8 +92,17 @@
         <a-camera
           id="camera"
           look-controls="pointer-lock-enabled: true;"
+          camera="userHeight: 1.6"
           rotation-reader
-        ></a-camera>
+        >
+          <a-text
+            id="caption"
+            value="Hello lorem ipsum bacon meatballs Hello lorem ipsum bacon meatballsHello lorem ipsum bacon meatballs"
+            align="center"
+            scale="0.2 0.2 0.2"
+            position="0 -0.5 -1"
+          ></a-text>
+        </a-camera>
       </a-entity>
     </a-scene>
   </body>
