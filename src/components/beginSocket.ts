@@ -38,6 +38,11 @@ export const beginSocketComponent = registerComponent('begin-socket', {
   },
 });
 
+const juryForemanVids = [];
+const juryAVids = [];
+const juryBVids = [];
+const juryCVids = [];
+
 export const loadVideoFile = (file: string) => {
   const video: any = document.createElement('video');
   video.preload = 'metadata';
@@ -55,4 +60,13 @@ export const loadVideoFile = (file: string) => {
   };
 
   // video.src = URL.createObjectURL(file);
+  // to set specific time of video
+  document.querySelector(
+    '#antarctica'
+  ).components.material.data.src.currentTime = 0; // start of video
+
+  // to play the videosphere
+  document
+    .querySelector('#antarctica')
+    .components.material.material.map.image.play();
 };
