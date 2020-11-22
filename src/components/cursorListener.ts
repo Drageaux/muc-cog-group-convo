@@ -11,13 +11,11 @@ export const cursorListenerComponent = registerComponent('cursor-listener', {
       // update caption's cursor target
       console.log(captionEl.getDOMAttribute('caption').speaker);
       captionEl.setAttribute('caption', {cursorTarget: this.data.speakerId});
-      captionEl.flushToDOM();
     });
     this.el.addEventListener('mouseleave', () => {
       console.log('Mouse left');
       // remove caption's cursor target
       captionEl.setAttribute('caption', {cursorTarget: ''});
-      captionEl.flushToDOM();
     });
   },
 });
