@@ -1,11 +1,4 @@
 import {Component, Entity, registerComponent} from 'aframe';
-import {Vector3} from 'three';
-
-export interface CaptionComponent extends Component {
-  schema: {speaker: {type: 'string'}; cursorTarget: {type: 'string'}};
-  init: () => void;
-  update: () => void;
-}
 
 export const captionComponent = registerComponent('caption', {
   schema: {
@@ -16,14 +9,14 @@ export const captionComponent = registerComponent('caption', {
     console.log(this.data.speaker);
     console.log(this.data.cursorTarget);
   },
-  update: function (oldData: any) {
-    console.log({oldData});
-    console.log(this.data.speaker);
-    console.log(this.data.cursorTarget);
+  update: function () {
+    const cursorTarget = this.el.getAttribute('cursor-target');
+    console.log('cursor target', cursorTarget);
+    console.log('current speaker', this.data.speaker);
     if (
       this.data.speaker &&
-      this.data.cursorTarget &&
-      this.data.speaker === this.data.cursorTarget
+      cursorTarget &&
+      this.data.speaker === cursorTarget
     ) {
       this.el.setAttribute('opacity', 1);
     } else {

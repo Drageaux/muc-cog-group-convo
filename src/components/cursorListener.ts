@@ -9,13 +9,17 @@ export const cursorListenerComponent = registerComponent('cursor-listener', {
     this.el.addEventListener('click', e => {
       console.log('Player hit something!', {e});
       // update caption's cursor target
-      console.log(captionEl.getDOMAttribute('caption').speaker);
-      captionEl.setAttribute('caption', {cursorTarget: this.data.speakerId});
+      captionEl.setAttribute('cursor-target', this.data.speakerId);
+      if (this.data.speakerId === captionEl.getAttribute('caption').speaker)
+        captionEl.setAttribute('opacity', 1);
+      console.log('cursor target', `speaker: ${this.data.speakerId}`);
+      console.log('current speaker', captionEl.getAttribute('caption'));
     });
     this.el.addEventListener('mouseleave', () => {
       console.log('Mouse left');
       // remove caption's cursor target
-      captionEl.setAttribute('caption', {cursorTarget: ''});
+      captionEl.setAttribute('cursor-target', null);
+      captionEl.setAttribute('opacity', 0);
     });
   },
 });

@@ -68,9 +68,7 @@ const swapVideoElement = (
 const updateCaption = (currentSpeaker: string, text: string) => {
   const captionEl = document.querySelector('#caption');
   captionEl.setAttribute('value', text);
-  captionEl.setAttribute('caption', {speaker: currentSpeaker});
-  captionEl.flushToDOM();
-  console.log('caption attr:', captionEl.getAttribute('caption'));
+  captionEl.setAttribute('caption', `speaker: ${currentSpeaker}`);
 };
 
 export const videoPlaybackSystem = registerSystem(VIDEO_PLAYBACK_NAME, {
