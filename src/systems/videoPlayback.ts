@@ -2,6 +2,19 @@ import {registerSystem, System} from 'aframe';
 import {VIDEO_PLAYBACK_NAME} from '../constants';
 import {captions} from './captions';
 
+const JUROR_IDLE_VIDEOS = {
+  'juror-a': [`assets/videos/${'idle'}.mp4`],
+  'juror-b': [`assets/videos/${'idle'}.mp4`],
+  'juror-c': [
+    'assets/videos/juror-c-idle-1.mp4',
+    'assets/videos/juror-c-idle-2.mp4',
+    'assets/videos/juror-c-idle-3.mp4',
+    'assets/videos/juror-c-idle-4.mp4',
+    'assets/videos/juror-c-idle-5.mp4',
+  ],
+  'jury-foreman': [`assets/videos/${'idle'}.mp4`],
+};
+
 export interface VideoPlaybackSystem extends System {
   currentlyPlaying: number;
   moveToNextVideo: (
@@ -45,13 +58,17 @@ export const videoPlaybackSystem = registerSystem(VIDEO_PLAYBACK_NAME, {
     const videoSrc = jurorVideoAssetEl.getAttribute('src') as string;
     const filename = videoSrc.split('/').pop()!;
     const stem = filename.split('.')[0];
-    if (stem.includes('idle')) {
-      // It's an idle video, play another idle video.
-      swapVideoElement(jurorId, `assets/videos/${'idle'}.mp4`);
-    } else {
+
+    const idleVideoFilepathOptions = JUROR_IDLE_VIDEOS[jurorId];
+    const idleVideoFilepath =
+      idleVideoFilepathOptions[
+        Math.floor(Math.random() * idleVideoFilepathOptions.length)
+      ];
+    swapVideoElement(jurorId, idleVideoFilepath);
+
+    if (!stem.includes('idle')) {
       console.log(`Seems like ${jurorId} is done speaking!`);
       // Video is of someone speaking, change the current speaker video to idle and change the next speaker's idle to playing.
-      swapVideoElement(jurorId, `assets/videos/${'idle'}.mp4`);
       const {id: newSpeakerId} = captions[this.currentlyPlaying];
       this.currentlyPlaying += 1;
       swapVideoElement(
