@@ -27,7 +27,16 @@ const JUROR_IDLE_VIDEOS = {
     'assets/videos/juror-c-idle-4.mp4',
     'assets/videos/juror-c-idle-5.mp4',
   ],
-  'jury-foreman': [`assets/videos/${'idle'}.mp4`],
+  'jury-foreman': [
+    'assets/videos/jury-foreman-idle-1.mp4',
+    'assets/videos/jury-foreman-idle-2.mp4',
+    'assets/videos/jury-foreman-idle-3.mp4',
+    'assets/videos/jury-foreman-idle-4.mp4',
+    'assets/videos/jury-foreman-idle-5.mp4',
+    'assets/videos/jury-foreman-idle-6.mp4',
+    'assets/videos/jury-foreman-idle-7.mp4',
+    'assets/videos/jury-foreman-idle-8.mp4',
+  ],
 };
 
 export interface VideoPlaybackSystem extends System {
