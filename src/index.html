@@ -1,6 +1,6 @@
 <html>
   <body>
-    <a-scene begin-socket>
+    <a-scene begin-socket debug>
       <a-assets>
         <!-- 3D Models -->
         <!-- https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74 -->
@@ -16,6 +16,30 @@
           id="sitting"
           src="assets/Lowpolymesh_Eliber.glb"
         ></a-asset-item>
+        <video
+          id="juror-a-video"
+          autoplay
+          muted
+          src="assets/videos/idle.mp4"
+        ></video>
+        <video
+          id="juror-b-video"
+          autoplay
+          muted
+          src="assets/videos/idle.mp4"
+        ></video>
+        <video
+          id="juror-c-video"
+          autoplay
+          muted
+          src="assets/videos/idle.mp4"
+        ></video>
+        <video
+          id="jury-foreman-video"
+          autoplay
+          muted
+          src="assets/videos/idle.mp4"
+        ></video>
       </a-assets>
       <a-entity
         scale="0.7 0.4 0.7"
@@ -29,16 +53,17 @@
         position="-0.25 0.67 1.8"
         rotation="0 155 0"
         gltf-model="#sitting"
-        id="juror-a"
-        class="cursor-readable"
-        cursor-listener
       >
         <a-video
-          id="juror-a-video"
+          id="juror-a"
+          src="#juror-a-video"
+          video-playback="juror-a"
           width="9"
           height="16"
           scale="0.28 0.28 0.28"
           position="0 4.75 0.9"
+          class="cursor-readable"
+          cursor-listener
         ></a-video>
       </a-entity>
       <!-- mid left -->
@@ -47,16 +72,17 @@
         position="-1.6 0.67 0.9"
         rotation="0 120 0"
         gltf-model="#sitting"
-        id="juror-c"
-        class="cursor-readable"
-        cursor-listener
       >
         <a-video
-          id="juror-c-video"
+          id="juror-c"
+          src="#juror-c-video"
+          video-playback="juror-c"
           width="16"
           height="9"
           scale="0.37 0.37 0.37"
           position="0 4.75 0.9"
+          class="cursor-readable"
+          cursor-listener
         ></a-video>
       </a-entity>
       <!-- mid right -->
@@ -65,16 +91,17 @@
         position="-1.6 0.67 -0.9"
         gltf-model="#sitting"
         rotation="0 60 0"
-        id="juror-b"
-        class="cursor-readable"
-        cursor-listener
       >
         <a-video
-          id="juror-b-video"
+          id="juror-b"
+          src="#juror-b-video"
+          video-playback="juror-b"
           width="16"
           height="9"
           scale="0.33 0.33 0.33"
           position="0 4.5 0.9"
+          class="cursor-readable"
+          cursor-listener
         ></a-video>
       </a-entity>
       <!-- far right -->
@@ -83,19 +110,21 @@
         position="-0.25 0.67 -1.8"
         rotation="0 25 0"
         gltf-model="#sitting"
-        id="jury-foreman"
-        class="cursor-readable"
-        cursor-listener
       >
         <a-video
-          id="jury-foreman-video"
+          id="jury-foreman"
+          src="#jury-foreman-video"
+          video-playback="jury-foreman"
           width="16"
           height="9"
           scale="0.33 0.33 0.33"
           position="0 4.75 0.9"
+          class="cursor-readable"
+          cursor-listener
         ></a-video>
       </a-entity>
 
+      <!-- Camera -->
       <a-entity id="rig" position="2 0.4 0" rotation="0 90 0">
         <a-camera
           id="camera"
