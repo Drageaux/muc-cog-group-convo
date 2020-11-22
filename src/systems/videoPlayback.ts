@@ -3,8 +3,23 @@ import {VIDEO_PLAYBACK_NAME} from '../constants';
 import {captions} from './captions';
 
 const JUROR_IDLE_VIDEOS = {
-  'juror-a': [`assets/videos/${'idle'}.mp4`],
-  'juror-b': [`assets/videos/${'idle'}.mp4`],
+  'juror-a': [
+    'assets/videos/juror-a-idle-1.mp4',
+    'assets/videos/juror-a-idle-2.mp4',
+    'assets/videos/juror-a-idle-3.mp4',
+    'assets/videos/juror-a-idle-4.mp4',
+    'assets/videos/juror-a-idle-5.mp4',
+  ],
+  'juror-b': [
+    'assets/videos/juror-b-idle-1.mp4',
+    'assets/videos/juror-b-idle-2.mp4',
+    'assets/videos/juror-b-idle-3.mp4',
+    'assets/videos/juror-b-idle-4.mp4',
+    'assets/videos/juror-b-idle-5.mp4',
+    'assets/videos/juror-b-idle-6.mp4',
+    'assets/videos/juror-b-idle-7.mp4',
+    'assets/videos/juror-b-idle-8.mp4',
+  ],
   'juror-c': [
     'assets/videos/juror-c-idle-1.mp4',
     'assets/videos/juror-c-idle-2.mp4',
