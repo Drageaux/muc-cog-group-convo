@@ -1,7 +1,7 @@
 import {messageQueuesComponent} from './components/messageQueues';
 import {messageQueuesSystem} from './systems/messageQueues';
 import {rotationReaderComponent} from './components/rotationReader';
-import {cursorListenerComponent} from './components/cursorListener';
+import {captionComponent} from './components/caption';
 import {beginSocketComponent} from './components/beginSocket';
 import {videoPlaybackSystem} from './systems/videoPlayback';
 import {videoPlaybackComponent} from './components/videoPlayback';
@@ -10,7 +10,7 @@ import {videoPlaybackComponent} from './components/videoPlayback';
 messageQueuesComponent;
 messageQueuesSystem;
 rotationReaderComponent;
-cursorListenerComponent;
+captionComponent;
 beginSocketComponent;
 videoPlaybackSystem;
 videoPlaybackComponent;
