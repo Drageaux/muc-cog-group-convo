@@ -30,10 +30,11 @@
         rotation="0 155 0"
         gltf-model="#sitting"
         id="juror-a"
+        class="cursor-readable"
         cursor-listener
       >
         <a-video
-          id="juror-a"
+          id="juror-a-video"
           width="9"
           height="16"
           scale="0.28 0.28 0.28"
@@ -47,10 +48,11 @@
         rotation="0 120 0"
         gltf-model="#sitting"
         id="juror-c"
+        class="cursor-readable"
         cursor-listener
       >
         <a-video
-          id="juror-c"
+          id="juror-c-video"
           width="16"
           height="9"
           scale="0.37 0.37 0.37"
@@ -64,10 +66,11 @@
         gltf-model="#sitting"
         rotation="0 60 0"
         id="juror-b"
+        class="cursor-readable"
         cursor-listener
       >
         <a-video
-          id="juror-b"
+          id="juror-b-video"
           width="16"
           height="9"
           scale="0.33 0.33 0.33"
@@ -80,10 +83,12 @@
         position="-0.25 0.67 -1.8"
         rotation="0 25 0"
         gltf-model="#sitting"
-        id="foreman"
+        id="jury-foreman"
+        class="cursor-readable"
+        cursor-listener
       >
         <a-video
-          id="jury-foreman"
+          id="jury-foreman-video"
           width="16"
           height="9"
           scale="0.33 0.33 0.33"
@@ -95,16 +100,15 @@
         <a-camera
           id="camera"
           look-controls="pointer-lock-enabled: true;"
-          camera="userHeight: 1.6"
           rotation-reader
         >
           <a-cursor
-            position="0 0 -1"
-            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-            material="color: black; shader: flat"
+            cursor="fuse: true; fuseTimeout: 50"
+            raycaster="objects: .cursor-readable"
           ></a-cursor>
           <a-text
             id="caption"
+            opacity="0"
             value="Hello lorem ipsum bacon meatballs Hello lorem ipsum bacon meatballsHello lorem ipsum bacon meatballs"
             align="center"
             scale="0.2 0.2 0.2"

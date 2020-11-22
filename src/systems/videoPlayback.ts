@@ -19,10 +19,10 @@ const swapVideoElement = (
   jurorId: 'juror-a' | 'juror-b' | 'juror-c' | 'jury-foreman',
   videoUrl: string
 ) => {
-  const jurorSelector = `#${jurorId}`;
+  const jurorSelector = `#${jurorId}-video`;
   const jurorEl = document.querySelector(jurorSelector)!;
   jurorEl.setAttribute('src', videoUrl);
-//   jurorEl.removeAttribute('activeSpeaker');
+  //   jurorEl.removeAttribute('activeSpeaker');
   return jurorEl;
 };
 
