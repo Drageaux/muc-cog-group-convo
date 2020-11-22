@@ -63,7 +63,7 @@
           scale="0.28 0.28 0.28"
           position="0 4.75 0.9"
           class="cursor-readable"
-          cursor-listener
+          cursor-listener="speakerId: juror-a"
         ></a-video>
       </a-entity>
       <!-- mid left -->
@@ -82,7 +82,7 @@
           scale="0.37 0.37 0.37"
           position="0 4.75 0.9"
           class="cursor-readable"
-          cursor-listener
+          cursor-listener="speakerId: juror-c"
         ></a-video>
       </a-entity>
       <!-- mid right -->
@@ -101,7 +101,7 @@
           scale="0.33 0.33 0.33"
           position="0 4.5 0.9"
           class="cursor-readable"
-          cursor-listener
+          cursor-listener="speakerId: juror-b"
         ></a-video>
       </a-entity>
       <!-- far right -->
@@ -120,7 +120,7 @@
           scale="0.33 0.33 0.33"
           position="0 4.75 0.9"
           class="cursor-readable"
-          cursor-listener
+          cursor-listener="speakerId: jury-foreman"
         ></a-video>
       </a-entity>
 
@@ -134,6 +134,7 @@
           <a-cursor
             cursor="fuse: true; fuseTimeout: 50"
             raycaster="objects: .cursor-readable"
+            cursor-reader
           ></a-cursor>
           <a-text
             id="caption"
@@ -142,6 +143,8 @@
             align="center"
             scale="0.2 0.2 0.2"
             position="0 -0.35 -1"
+            caption
+            viewing
           ></a-text>
         </a-camera>
       </a-entity>
