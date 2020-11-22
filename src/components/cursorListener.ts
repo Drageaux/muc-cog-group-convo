@@ -1,16 +1,23 @@
 import {registerComponent, Entity} from 'aframe';
 
 export const cursorListenerComponent = registerComponent('cursor-listener', {
+  schema: {
+    speakerId: {type: 'string'},
+  },
   init: function () {
+    const captionEl = document.querySelector('a-text#caption');
     this.el.addEventListener('click', e => {
-      const caption = document.querySelector('#caption');
       console.log('Player hit something!', {e});
-      caption.setAttribute('opacity', 1);
+      // update caption's cursor target
+      console.log(captionEl.getDOMAttribute('caption').speaker);
+      captionEl.setAttribute('caption', {cursorTarget: this.data.speakerId});
+      captionEl.flushToDOM();
     });
     this.el.addEventListener('mouseleave', () => {
       console.log('Mouse left');
-      const caption = document.querySelector('#caption');
-      caption.setAttribute('opacity', 0);
+      // remove caption's cursor target
+      captionEl.setAttribute('caption', {cursorTarget: ''});
+      captionEl.flushToDOM();
     });
   },
 });

@@ -1,4 +1,5 @@
-import {registerSystem, System} from 'aframe';
+import {Entity, registerSystem, System} from 'aframe';
+import {captionComponent, CaptionComponent} from '../components/caption';
 import {VIDEO_PLAYBACK_NAME} from '../constants';
 import {captions} from './captions';
 
@@ -64,12 +65,24 @@ const swapVideoElement = (
   return jurorVideoAssetEl;
 };
 
+const updateCaption = (currentSpeaker: string, text: string) => {
+  const captionEl = document.querySelector('#caption');
+  captionEl.setAttribute('value', text);
+  captionEl.setAttribute('caption', {speaker: currentSpeaker});
+  captionEl.flushToDOM();
+  console.log('caption attr:', captionEl.getAttribute('caption'));
+};
+
 export const videoPlaybackSystem = registerSystem(VIDEO_PLAYBACK_NAME, {
   init: function (this: VideoPlaybackSystem) {
     this.currentlyPlaying = 1;
     swapVideoElement(
       captions[this.currentlyPlaying - 1].id,
       `assets/videos/${this.currentlyPlaying}.mp4`
+    );
+    updateCaption(
+      captions[this.currentlyPlaying - 1].id,
+      captions[this.currentlyPlaying - 1].text
     );
   },
 
@@ -91,13 +104,19 @@ export const videoPlaybackSystem = registerSystem(VIDEO_PLAYBACK_NAME, {
     swapVideoElement(jurorId, idleVideoFilepath);
 
     if (!stem.includes('idle')) {
-      console.log(`Seems like ${jurorId} is done speaking!`);
+      console.log(
+        `${this.currentlyPlaying}. Seems like ${jurorId} is done speaking!`
+      );
       // Video is of someone speaking, change the current speaker video to idle and change the next speaker's idle to playing.
       const {id: newSpeakerId} = captions[this.currentlyPlaying];
       this.currentlyPlaying += 1;
       swapVideoElement(
         newSpeakerId,
         `assets/videos/${this.currentlyPlaying}.mp4`
+      );
+      updateCaption(
+        captions[this.currentlyPlaying - 1].id,
+        captions[this.currentlyPlaying - 1].text
       );
     }
   },
