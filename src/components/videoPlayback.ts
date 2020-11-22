@@ -17,7 +17,7 @@ export const videoPlaybackComponent = registerComponent(VIDEO_PLAYBACK_NAME, {
     const videoAssetSelector = `#${this.data}-video`;
     console.log(this.data);
     const videoAssetEl = document.querySelector(videoAssetSelector);
-    videoAssetEl.addEventListener('ended', this.moveToNextVideo);
+    videoAssetEl.addEventListener('ended', () => this.moveToNextVideo);
   },
 
   moveToNextVideo: function (this: VideoPlaybackComponent) {
