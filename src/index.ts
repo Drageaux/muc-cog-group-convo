@@ -1,10 +1,3 @@
-import {Coordinate, Entity, registerComponent} from 'aframe';
-import {
-  MAX_CHARACTER_COUNT,
-  MAX_HEIGHT,
-  MAX_WIDTH,
-  MESSAGE_QUEUE_NAME,
-} from './constants';
 import {messageQueuesComponent} from './components/messageQueues';
 import {messageQueuesSystem} from './systems/messageQueues';
 import {rotationReaderComponent} from './components/rotationReader';
@@ -17,5 +10,5 @@ messageQueuesComponent;
 messageQueuesSystem;
 rotationReaderComponent;
 beginSocketComponent;
-videoPlaybackComponent;
 videoPlaybackSystem;
+videoPlaybackComponent;

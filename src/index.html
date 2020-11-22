@@ -16,9 +16,10 @@
           id="sitting"
           src="assets/Lowpolymesh_Eliber.glb"
         ></a-asset-item>
-        <video id="juror-a-video" autoplay muted src="" ></video>
-        <video id="juror-b-video" autoplay muted src=""></video>
-        <video id="juror-c-video" autoplay muted src=""></video>
+        <video id="juror-a-video" autoplay muted src="assets/videos/idle.mp4" ></video>
+        <video id="juror-b-video" autoplay muted src="assets/videos/idle.mp4"></video>
+        <video id="juror-c-video" autoplay muted src="assets/videos/idle.mp4"></video>
+        <video id="jury-foreman-video" autoplay muted src="assets/videos/idle.mp4"></video>
       </a-assets>
       <a-entity
         scale="0.7 0.4 0.7"
@@ -90,6 +91,8 @@
       >
         <a-video
           id="jury-foreman"
+          src="#jury-foreman-video"
+          video-playback="jury-foreman"
           width="16"
           height="9"
           scale="0.33 0.33 0.33"

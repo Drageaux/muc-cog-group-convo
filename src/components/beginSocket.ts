@@ -1,19 +1,13 @@
 import {registerComponent, Entity} from 'aframe';
-import {createAFrameText} from '../common';
-import {MESSAGE_QUEUE_NAME} from '../constants';
 
-const words = ['quite', 'almost', 'very', 'really', 'too', 'extremely', 'just'];
 export const beginSocketComponent = registerComponent('begin-socket', {
   init: function () {
     // // loadVideoFile('/assets/videos/1.mp4');
-
     // let i = 0;
-
     // // NOTE: querySelectorAll returns a NodeList that does not support .object3D readily
     // const peopleModels = document.querySelectorAll(
     //   'a-entity[gltf-model="#sitting"]'
     // );
-
     // // forEach and as Entity<any> is a quick work-around
     // peopleModels.forEach((p, queueId) => {
     //   const personModel = p as Entity;

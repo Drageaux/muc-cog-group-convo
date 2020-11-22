@@ -18,8 +18,8 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
+    // minimize: true,
+    // minimizer: [new TerserPlugin()],
   },
   output: {
     filename: '[name].[chunkhash].js',
