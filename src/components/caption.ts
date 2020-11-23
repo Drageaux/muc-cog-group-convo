@@ -6,12 +6,13 @@ export const captionComponent = registerComponent('caption', {
     cursorTarget: {type: 'string'},
   },
   init: function () {
-    console.log(this.data.speaker);
-    console.log(this.data.cursorTarget);
+    // should be empty
+    console.log(this.data.speaker, 'is speaking');
+    console.log('Cursor looking at', this.data.cursorTarget);
   },
   update: function () {
-    console.log(this.data.speaker);
-    console.log(this.data.cursorTarget);
+    console.log(this.data.speaker, 'is speaking');
+    console.log('Cursor looking at', this.data.cursorTarget);
     if (
       this.data.speaker &&
       this.data.cursorTarget &&

@@ -64,6 +64,11 @@ const swapVideoElement = (
   return jurorVideoAssetEl;
 };
 
+/**
+ * Update text value, as well as changing the active speaker in the caption's comp.
+ * @param currentSpeaker
+ * @param text
+ */
 const updateCaption = (currentSpeaker: string, text: string) => {
   const captionEl = document.querySelector('#caption');
   captionEl.setAttribute('value', text);
