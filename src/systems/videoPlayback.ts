@@ -1,5 +1,4 @@
 import {Entity, registerSystem, System} from 'aframe';
-import {captionComponent, CaptionComponent} from '../components/caption';
 import {VIDEO_PLAYBACK_NAME} from '../constants';
 import {captions} from './captions';
 
