@@ -1,4 +1,4 @@
-import {Component, Entity, registerComponent} from 'aframe';
+import {registerComponent} from 'aframe';
 
 export const captionComponent = registerComponent('caption', {
   schema: {
@@ -10,13 +10,12 @@ export const captionComponent = registerComponent('caption', {
     console.log(this.data.cursorTarget);
   },
   update: function () {
-    const cursorTarget = this.el.getAttribute('cursor-target');
-    console.log('cursor target', cursorTarget);
-    console.log('current speaker', this.data.speaker);
+    console.log(this.data.speaker);
+    console.log(this.data.cursorTarget);
     if (
       this.data.speaker &&
-      cursorTarget &&
-      this.data.speaker === cursorTarget
+      this.data.cursorTarget &&
+      this.data.speaker === this.data.cursorTarget
     ) {
       this.el.setAttribute('opacity', 1);
     } else {

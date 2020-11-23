@@ -68,7 +68,13 @@ const swapVideoElement = (
 const updateCaption = (currentSpeaker: string, text: string) => {
   const captionEl = document.querySelector('#caption');
   captionEl.setAttribute('value', text);
-  captionEl.setAttribute('caption', `speaker: ${currentSpeaker}`);
+
+  captionEl.setAttribute(
+    'caption',
+    `speaker: ${currentSpeaker}; cursorTarget: ${
+      captionEl.getAttribute('caption').cursorTarget
+    }`
+  );
 };
 
 export const videoPlaybackSystem = registerSystem(VIDEO_PLAYBACK_NAME, {
