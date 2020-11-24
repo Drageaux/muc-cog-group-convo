@@ -7,13 +7,13 @@ import {
 } from '../constants';
 
 export interface MessageQueuesSystem extends System {
-  queues: [Entity[], Entity[], Entity[]];
+  queues: [Entity[], Entity[], Entity[], Entity[], Entity[]];
   addMessage: (queueId: number, entity: Entity) => void;
 }
 
 export const messageQueuesSystem = registerSystem(MESSAGE_QUEUE_NAME, {
   init: function (this: MessageQueuesSystem) {
-    this.queues = [[], [], []];
+    this.queues = [[], [], [], [], []];
   },
 
   addMessage: function (
