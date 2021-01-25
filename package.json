@@ -18,8 +18,7 @@
     "build:server": "npm run compile && npm run copy-static-assets",
     "build:all": "npm run pack && npm run build:server",
     "postinstall": "npm run build:all",
-    "start:server": "node build/server/index.js",
-    "start": "npm run build:all && npm run start:server"
+    "start": "node build/server/index.js"
   },
   "repository": {
     "type": "git",
