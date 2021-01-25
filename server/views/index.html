@@ -1,4 +1,8 @@
 <html>
+  <head>
+    <!-- <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> -->
+    <script src="/public/bundle.js"></script>
+  </head>
   <body>
     <a-scene begin-socket debug>
       <a-assets>
@@ -6,39 +10,39 @@
         <!-- https://sketchfab.com/3d-models/table-1132fa2850a24917892733566bd68e74 -->
         <a-asset-item
           id="conference-roundtable"
-          src="assets/conference-roundtable/scene.gltf"
+          src="/public/conference-roundtable/scene.gltf"
         ></a-asset-item>
         <a-asset-item
           id="conference-room"
-          src="assets/conference-room/scene.gltf"
+          src="/public/conference-room/scene.gltf"
         ></a-asset-item>
         <a-asset-item
           id="sitting"
-          src="assets/Lowpolymesh_Eliber.glb"
+          src="/public/Lowpolymesh_Eliber.glb"
         ></a-asset-item>
         <video
           id="juror-a-video"
           autoplay
           muted
-          src="assets/videos/idle.mp4"
+          src="/public/videos/juror-a-idle-1.mp4"
         ></video>
         <video
           id="juror-b-video"
           autoplay
           muted
-          src="assets/videos/idle.mp4"
+          src="/public/videos/juror-b-idle-1.mp4"
         ></video>
         <video
           id="juror-c-video"
           autoplay
           muted
-          src="assets/videos/idle.mp4"
+          src="/public/videos/juror-c-idle-1.mp4"
         ></video>
         <video
           id="jury-foreman-video"
           autoplay
           muted
-          src="assets/videos/idle.mp4"
+          src="/public/videos/jury-foreman-idle-1.mp4"
         ></video>
       </a-assets>
       <a-entity

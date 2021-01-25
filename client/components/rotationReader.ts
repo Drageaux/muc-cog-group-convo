@@ -1,5 +1,4 @@
-import {Entity, registerComponent} from 'aframe';
-import {Vector3} from 'three';
+import {registerComponent} from 'aframe';
 
 export const rotationReaderComponent = registerComponent('rotation-reader', {
   /**
@@ -9,8 +8,8 @@ export const rotationReaderComponent = registerComponent('rotation-reader', {
   tick: (function () {
     return function () {
       // using "this" does not support getting object3D, so we use querySelector instead
-      const camRotation = document.querySelector('a-camera').object3D.rotation;
-      const {x, y, z} = camRotation;
+      // const camRotation = document.querySelector('a-camera').object3D.rotation;
+      // const {x, y, z} = camRotation;
       // console.log({x}, {y}, {z});
     };
   })(),

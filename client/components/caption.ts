@@ -7,12 +7,8 @@ export const captionComponent = registerComponent('caption', {
   },
   init: function () {
     // should be empty
-    console.log(this.data.speaker, 'is speaking');
-    console.log('Cursor looking at', this.data.cursorTarget);
   },
   update: function () {
-    console.log(this.data.speaker, 'is speaking');
-    console.log('Cursor looking at', this.data.cursorTarget);
     if (
       this.data.speaker &&
       this.data.cursorTarget &&

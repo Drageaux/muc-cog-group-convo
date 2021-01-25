@@ -1,4 +1,4 @@
-import {registerComponent, Entity} from 'aframe';
+import {registerComponent} from 'aframe';
 
 export const cursorListenerComponent = registerComponent('cursor-listener', {
   schema: {
@@ -6,8 +6,7 @@ export const cursorListenerComponent = registerComponent('cursor-listener', {
   },
   init: function () {
     const captionEl = document.querySelector('a-text#caption');
-    this.el.addEventListener('click', e => {
-      console.log('Mouse entered!', {e});
+    this.el.addEventListener('click', () => {
       // update caption's cursor target
       captionEl.setAttribute(
         'caption',
@@ -17,7 +16,6 @@ export const cursorListenerComponent = registerComponent('cursor-listener', {
       );
     });
     this.el.addEventListener('mouseleave', () => {
-      console.log('Mouse left');
       // remove caption's cursor target
       captionEl.setAttribute(
         'caption',
